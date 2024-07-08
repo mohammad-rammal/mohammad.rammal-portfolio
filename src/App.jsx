@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
@@ -8,6 +9,27 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 function App() {
+  useEffect(() => {
+    document.title = "Mohammad Rammal | Portfolio";
+    const originalTitle = document.title;
+    const additionalText = "Full Stack Developer - MERN Stack";
+
+    const onMouseOver = () => {
+      document.title = `${originalTitle} - ${additionalText}`;
+    };
+
+    const onMouseOut = () => {
+      document.title = originalTitle;
+    };
+
+    window.addEventListener('mouseover', onMouseOver);
+    window.addEventListener('mouseout', onMouseOut);
+
+    return () => {
+      window.removeEventListener('mouseover', onMouseOver);
+      window.removeEventListener('mouseout', onMouseOut);
+    };
+  }, []);
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900 dark:text-black">
       <div className="fixed top-0 -z-10 h-full w-full">

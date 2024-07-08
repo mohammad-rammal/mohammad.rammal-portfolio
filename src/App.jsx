@@ -9,6 +9,7 @@ import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 function App() {
+
   useEffect(() => {
     document.title = "Mohammad Rammal | Portfolio";
     const originalTitle = document.title;
